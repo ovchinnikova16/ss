@@ -7,7 +7,7 @@ import snake.GameField;
 import snake.Config;
 
 public class FeildTest extends Assert{
-
+/*
     @Test
     public void isDead(){
         Config config = new Config(25, 25, 25, 250);
@@ -54,4 +54,5 @@ public class FeildTest extends Assert{
         field.setSnakeLocations(arr);
         assertEquals(true, field.isSnakeDead());
     }
+  */
 }

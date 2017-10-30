@@ -5,19 +5,10 @@ import java.io.*;
 
 public class Game extends JFrame{
 
-    public Game(){
-        setTitle("snake.Snake");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        Config config = new Config(25, 25, 25, 250);
-        setSize(config.getWindowWidth(),config.getWindowHeight());
-        setLocation(100,100);
-        GameField firstGF = new GameField(config);
-        add(firstGF); // add on the main window
-        setVisible(true);
-    }
+    public Game(){ }
 
     public static void main(String[] args) {
-        Game mw = new Game();
+        Menu mw = new Menu();
     }
 
     public static void serialize(GameField gf, String levelName) throws IOException {
