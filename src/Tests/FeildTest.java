@@ -5,13 +5,14 @@ import org.junit.Test;
 import org.junit.Assert;
 import snake.GameField;
 import snake.Config;
+import snake.Level;
 
 public class FeildTest extends Assert{
-/*
+
     @Test
     public void isDead(){
         Config config = new Config(25, 25, 25, 250);
-        GameField field = new GameField(config);
+        GameField field = new GameField(config, new Level(config, "level"));
         Point[] arr = new Point[9];
         arr[0] = new Point(0, 0);
         arr[1] = new Point(1, 0);
@@ -29,7 +30,7 @@ public class FeildTest extends Assert{
     @Test
     public void isNotDead(){
         Config config = new Config(25, 25, 25, 250);
-        GameField field = new GameField(config);
+        GameField field = new GameField(config, new Level(config, "level"));
         Point[] arr = new Point[9];
         arr[0] = new Point(0, 0);
         arr[1] = new Point(1, 0);
@@ -46,7 +47,7 @@ public class FeildTest extends Assert{
     @Test
     public void isDeadWhenInWall() {
         Config config = new Config(25, 25, 25, 250);
-        GameField field = new GameField(config);
+        GameField field = new GameField(config, new Level(config, "level"));
         Point[] arr = new Point[3];
         arr[0] = new Point(-1, 0);
         arr[1] = new Point(0, 0);
@@ -54,5 +55,5 @@ public class FeildTest extends Assert{
         field.setSnakeLocations(arr);
         assertEquals(true, field.isSnakeDead());
     }
-  */
+
 }

@@ -1,17 +1,26 @@
 package snake;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Random;
 
-public class Level {
+public class Level implements Serializable {
     private int WIDTH;
     private int HEIGHT;
     private int PIXEL;
     private String levelName;
-    private HashSet mazeLocations;
+    private HashSet<Wall> mazeLocations;
 
     public String getLevelName() {
         return levelName;
+    }
+
+    public HashSet<Wall> getMazeLocations() {
+        return mazeLocations;
+    }
+
+    public void setMazeLocations(HashSet<Wall> maze){
+        mazeLocations = maze;
     }
 
     public Level(Config config, String level){

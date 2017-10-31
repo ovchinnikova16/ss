@@ -15,17 +15,31 @@ public class LevelRedactor extends JPanel implements Serializable{
     private Point location;
     private Image bush;
     private HashSet maze;
+    private Config CONFIG;
+    private Level level;
 
     public LevelRedactor(Config config){
         WIDTH = config.getFieldWidth();
         HEIGHT = config.getFieldHeight();
         PIXEL = config.getPixelSize();
+        CONFIG = config;
         maze = new HashSet();
         location = new Point(0, 0);
+        level = new Level(config, "level");
         setBackground(Color.black);
         loadImages();
         addKeyListener(new FieldKeyListener());
         setFocusable(true);
+        repaint();
+    }
+
+    public Level getLevel(){
+        level.setMazeLocations(maze);
+        return level;
+    }
+
+    public HashSet getMaze() {
+        return maze;
     }
 
     @Override
@@ -82,19 +96,21 @@ public class LevelRedactor extends JPanel implements Serializable{
             if (key == KeyEvent.VK_LEFT && getLocation().x > 0) {
                 setLocation(--location.x, location.y);
             }
-            if (key == KeyEvent.VK_RIGHT && getLocation().x < WIDTH) {
+            if (key == KeyEvent.VK_RIGHT && getLocation().x < WIDTH - 1) {
                 setLocation(++location.x, location.y);
             }
             if (key == KeyEvent.VK_UP && getLocation().y > 0) {
                 setLocation(location.x, --location.y);
             }
-            if (key == KeyEvent.VK_DOWN && getLocation().y < HEIGHT) {
+            if (key == KeyEvent.VK_DOWN && getLocation().y < HEIGHT - 1) {
                 setLocation(location.x, ++location.y);
             }
             if (key == KeyEvent.VK_SPACE){
                 addNewWall();
             }
             if (key == KeyEvent.VK_ENTER){
+                //GameField first = new GameField(CONFIG);
+                //GameField.main(null);
                 //Level lvl = new Level(config, "new Level");
                 //Game.serialize(lvl, "new Level");
             }
